@@ -1,0 +1,7 @@
+# Basic requirements for algorithm demonstrations
+numpy>=1.19.5
+matplotlib>=3.3.4
+scipy>=1.6.0
+
+# Jupyter notebook
+jupyter>=1.0.0

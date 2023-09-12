@@ -49,7 +49,7 @@ cd your_project_name
 
 2. **Install Dependencies:**
    
-If you have a `requirements.txt` or `Pipfile`:
+Make sure to install all packages as specified in requirements.txt:
 
 ```bash
 pip install -r requirements.txt
