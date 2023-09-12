@@ -41,7 +41,7 @@ def compute_polygon_height(polygon, return_vertices=False):
     max_vert = max(polygon,key = lambda i:i[1])
     
     # If return_vertices flag is set, return height along with leftmost and rightmost vertices
-    if return_vertices == True:
+    if return_vertices:
         return max_vert[1] - min_vert[1], min_vert, max_vert
     # Otherwise, just return height of the polygon
     else:
