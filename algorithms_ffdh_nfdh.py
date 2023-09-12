@@ -10,7 +10,6 @@ def order_by_height(rectangles):
     """
     rectangles.sort(reverse=True)
 
-
 def nfdh(rectangles,stripwidth=1,return_map=False):
     """
     Packs the rectangles using the Next Fit Decreasing Height (NFDH) algorithm.
