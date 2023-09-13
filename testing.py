@@ -1,11 +1,4 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Created on Fri Mar 10 15:45:20 2023
-
-@author: sisuter
-"""
-
+# %%
 from plotting import *
 from rectangle_packing import *
 from polygon_packing import *
@@ -14,9 +7,8 @@ import matplotlib.pyplot as plt
 from matplotlib.path import Path
 import numpy as np
 
-
-"""
-#nfdh ffdh algo explanation and differences
+# %%
+#nfdh ffdh algo demonstration and differences (for presentation)
 
 rectangles = [(5,3),(3.9,2.7),(2,2.3),(4.1,2),(8,1)]
 
@@ -41,22 +33,18 @@ for i in range(5):
 
 rectangles_placed_nfdh_it = [0]*5
 rectangles_placed_ffdh_it = [0]*5
-"""
 
-
-"""
 for i in range(5):
     rectangles_placed_nfdh_it[i] = calc_coords_of_shelf_packing(S_nfdh_it[i],h_S_nfdh_it[i])
     rectangles_placed_ffdh_it[i] = calc_coords_of_shelf_packing(S_ffdh_it[i],h_S_ffdh_it[i])
 
 for i in range(5):
-    plot_rectangles(rectangles_placed_nfdh_it[i], figure_size = (5,5), binsize = (8,8.7))
+    plot_rectangles(rectangles_placed_nfdh_it[i], size_scaling = 5, binsize = (8,8.7))
     
 for i in range(5):
-    plot_rectangles(rectangles_placed_ffdh_it[i], figure_size = (5,5), binsize = (8,8.7))
-"""
-
-"""
+    plot_rectangles(rectangles_placed_ffdh_it[i], size_scaling = 5, binsize = (8,8.7))
+# %%
+# Vanishing rectangles (for presentation)
 rectangles = [(5,3),(3.9,2.7),(2,2.3),(4.1,2),(8,1)]
 
 rectangles_placement = [((0.1,0.1),5,3),((0.1,3.6),3.9,2.7),((0.1,0.1+3.5+2.7+0.5),2,2.3),((0.1,0.1+3.5+2.7+1+2.3),4.1,2),((0.1,0.1+3.5+2.7+1.5+2.3+2),8,1)]
@@ -70,35 +58,16 @@ lines = [[[(0.1,0.1),5,0], [(5.1,0.1),0,3], [(0.1,3.1),5,0], [(0.1,0.1),0,3]],
          [[(0.1,2.1+3+2.7+2.3+2),8,0], [(0.1,2.1+3+2.7+2.3+2),0,1], [(0.1,2.1+3+2.7+2.3+2+1),8,0], [(0.1+8,2.1+3+2.7+2.3+2),0,1]]]
 
 for i in range(len(rectangles_placements)):
-    plot_rectangles(rectangles_placements[i], figure_size = (5,5), binsize = (8.2,3.5+2.7+1.5+2.3+2+1+0.2))
-    plot_rectangles(rectangles_placements[i], figure_size = (5,5), binsize = (8.2,3.5+2.7+1.5+2.3+2+1+0.2), cuts=lines[i])
+    plot_rectangles(rectangles_placements[i], size_scaling = 5, binsize = (8.2,3.5+2.7+1.5+2.3+2+1+0.2))
+    plot_rectangles(rectangles_placements[i], size_scaling = 5, binsize = (8.2,3.5+2.7+1.5+2.3+2+1+0.2), cuts=lines[i])
 
 
 
 plot_rectangles([], figure_size = (5,5), binsize = (8.2,3.5+2.7+1.5+2.3+2+1+0.2))
 
 plot_rectangles([], figure_size= (5,5), binsize = (8,8.7))
-"""
-
-"""
-a=[3,5,1,5,2,4,4,57,32,3]
-
-a_sorted = sorted(a)
-
-a_order = sorted(range(len(a)),key = lambda i: a[i])
-
-a_map = sorted(range(len(a_order)),key = lambda i: a_order[i])
-
-print(a)
-
-print(a_sorted)
-
-print(a_order)
-
-print(a_map)
-"""
-
-"""
+# %%
+# A polygon in its bounding rectangle
 N=1
 
 polygon = [(2,0),(5,3),(4,6),(0,5),(0.25,2.25),(4.75,5.25)]
@@ -112,11 +81,8 @@ polygon_packed = [[(polygoni[i][0],polygoni[i][1]+2) for i in range(len(polygoni
 parallelogram_packed = [[(polygoni[i][0],polygoni[i][1]+2) for i in range(len(polygoni))] for polygoni in parallelogram_packed]
 
 visualize_polygons(polygon_packed, bounding_parallelograms = parallelogram_packed, figure_size = (200,200), binsize = (width,height))
-"""
-
-#For presentation:
-
-"""
+# %%
+#Plot intervals (for presentation):
 rectangles = [((0,0),c,d) for ((a,b),c,d) in [((0,0),1,1/20),
                  ((0,1/20),1/2,4/5),((1/2,1/20),1/4,11/16),((3/4,1/20),1/8,5/8),((7/8,1/20),1/8,5/8),
                  ((0,4/5+1/20),9/16,1/2),((9/16,11/16+1/20),1/4,1/2),((7/8,1/20+5/8),1/8,7/8),
@@ -148,10 +114,8 @@ visualize_1d(bp2, binsize=1, plot_interval=True, remove_frame=True)
 visualize_1d(bp3, binsize=1, plot_interval=True, remove_frame=True)
 visualize_1d(bp4, binsize=1, plot_interval=True, remove_frame=True)
 visualize_1d(bp5, binsize=1, plot_interval=True, remove_frame=True)
-"""
-
-"""
-#drawings for explaining all sorts of rectangle packing problems.
+# %%
+# Plot some example rectangle packings and polygons (for presentation)
 
 rectangles1 = [((0,0),3/5,2/5),((3/5,0),2/5,3/5),((2/5,3/5),3/5,2/5),((0,2/5),2/5,3/5)]
 
@@ -228,9 +192,9 @@ polygons_sp = [[(a - area_min[polygons_sp_nrs[i]][0][0] + strip_packing[i][0][0]
 visualize_polygons(polygons_sp, binsize=(1,2.6))
 
 #polygons_sp = [polygons_area_min[9],polygons_area_min[0],polygons_area_min[1],polygons_area_min[2],polygons_area_min[3],polygons_area_min[10],polygons_area_min[11],polygons_area_min[8],polygons_area_min[6],polygons_area_min[4],polygons_area_min[5],polygons_area_min[7]]
-"""
+# %%
+# A demonstration of the algorithm
 
-"""
 N = 10
 c = 4
 d = 2#horizontal dist btwn polys
@@ -458,17 +422,14 @@ visualize_polygons([],bounding_parallelograms=parallelograms_placement,binsize=(
 visualize_polygons(polygons_placement, bounding_parallelograms = parallelograms_placement, binsize = (W,H))
 
 visualize_polygons([],binsize=(W,H))
-"""
-
-"""
+# %%
 a_polygon_to_visualize = [[(1,1),(3,1),(2,3),(4,3)]]
 visualize_polygons([],bounding_parallelograms=a_polygon_to_visualize,binsize=(5,4))
 
 a_rect_to_visualize = [((1,1),2,2)]
 plot_rectangles(a_rect_to_visualize, binsize=(4,4))
-"""
-
-"""
+# %%
+# Problematic polygons for bin packing problem
 N = 10
 
 karate_guys = [[(i*0.3/(N),0.3-i*0.3/(N)),((i+1)*0.3/(N),0.3-(i+1)*0.3/(N)),(1-0.3+i*0.3/(N),1-i*0.3/(N))] for i in range(N)]
@@ -477,5 +438,281 @@ fan_guys = [[(0,0),(0.7+i/N,1),(0.7+(i+1)/N,1)] for i in range(N)]
 
 visualize_polygons(karate_guys)
 visualize_polygons(fan_guys)
+# %%
+# Our algorithm on a random testset of 6-gons
+N=200
+random_polygons = [[(0,random.random()),(random.random(),0),(random.random(),random.random()),(random.random(),random.random()),(random.random(),random.random()),(random.random(),random.random())] for i in range(N)]
+
+packed_random_polygons, packed_random_polygons_bounding_parallelograms, width, height = polygon_packing(random_polygons,c=7)
+
+visualize_polygons(packed_random_polygons, bounding_parallelograms = packed_random_polygons_bounding_parallelograms, figure_size = (20,20), binsize = (width,height))
+# %%
+# Our algorithm on an instance created with exponential distributions
+N=300
+random_polygons = [[(0,np.random.exponential()),(np.random.exponential(),0),(np.random.exponential(),np.random.exponential()),(np.random.exponential(),np.random.exponential()),(np.random.exponential(),np.random.exponential()),(np.random.exponential(),np.random.exponential())] for i in range(N)]
+
+packed_random_polygons, packed_random_polygons_bounding_parallelograms, width, height = polygon_packing(random_polygons,c=7)
+
+visualize_polygons(packed_random_polygons, bounding_parallelograms = packed_random_polygons_bounding_parallelograms, figure_size = (60,60), binsize = (width,height))
+# %%
+# Our algorithm on instance with random fractions (nominator and denominator uniformly random integers in [1,100])
+N=300
+random_polygons = [[(0,Fraction(random.randint(1,100),100*random.randint(1,10))),(Fraction(random.randint(1,100),100*random.randint(1,10)),0),(Fraction(random.randint(1,100),100*random.randint(1,10)),Fraction(random.randint(1,100),100*random.randint(1,10))),(Fraction(random.randint(1,100),100*random.randint(1,10)),Fraction(random.randint(1,100),100*random.randint(1,10))),(Fraction(random.randint(1,100),100*random.randint(1,10)),Fraction(random.randint(1,100),100*random.randint(1,10))),(Fraction(random.randint(1,100),100*random.randint(1,10)),Fraction(random.randint(1,100),100*random.randint(1,10)))] for i in range(N)]
+
+packed_random_polygons, packed_random_polygons_bounding_parallelograms, width, height = polygon_packing(random_polygons,c=7)
+
+width = float(width)
+height = float(height)
+
+visualize_polygons(packed_random_polygons, bounding_parallelograms = packed_random_polygons_bounding_parallelograms, figure_size = (200,200), binsize = (width,height))
+# %%
+# Our algorithm on instance with random fractions (nominator and denominator uniformly random integers in [1,100]), bottom-left adjust them afterwards; visualized shelves
+N=300
+random_polygons = [[(Fraction(random.randint(1,100),100*random.randint(1,10)),Fraction(random.randint(1,100),100*random.randint(1,10))),(Fraction(random.randint(1,100),100*random.randint(1,10)),Fraction(random.randint(1,100),100*random.randint(1,10))),(Fraction(random.randint(1,100),100*random.randint(1,10)),Fraction(random.randint(1,100),100*random.randint(1,10))),(Fraction(random.randint(1,100),100*random.randint(1,10)),Fraction(random.randint(1,100),100*random.randint(1,10))),(Fraction(random.randint(1,100),100*random.randint(1,10)),Fraction(random.randint(1,100),100*random.randint(1,10))),(Fraction(random.randint(1,100),100*random.randint(1,10)),Fraction(random.randint(1,100),100*random.randint(1,10)))] for i in range(N)]
+
+random_polygons = [left_bottom_adjust_polygon(polygon) for polygon in random_polygons]
+
+packed_random_polygons, packed_random_polygons_bounding_parallelograms, width, height, shelf_lines = polygon_packing(random_polygons,c=7,rectangle_strip_packing_algorithm="ffdh",return_shelf_lines=True)
+
+width = float(width)
+height = float(height)
+
+visualize_polygons(packed_random_polygons, bounding_parallelograms = packed_random_polygons_bounding_parallelograms, figure_size = (200,200), binsize = (width,height),lines=shelf_lines)
+# %%
+# Our algorithms, uniformly random generated polygons
+N=300
+c=15
+
+random_polygons = [[(random.random(),random.random()) for j in range(random.randint(3,7))] for i in range(N)]
+
+random_polygons = [left_bottom_adjust_polygon(polygon) for polygon in random_polygons]
+
+packed_random_polygons, packed_random_polygons_bounding_parallelograms, width, height, shelf_lines = polygon_packing(random_polygons,c=c,rectangle_strip_packing_algorithm="ffdh",return_shelf_lines=True)
+
+width = float(width)
+height = float(height)
+
+visualize_polygons(packed_random_polygons, bounding_parallelograms = packed_random_polygons_bounding_parallelograms, figure_size = (200,200), binsize = (width,height))
+#------------
+# %%
+# Demo of NFDH, FFDH
+rectangles = [
+    (1,2),
+    (4,1),
+    (2,1),
+    (1,3),
+    (3,1),
+    (1,2),
+    (3,1),
+    (1,2),
+    (3,1),
+    (1,2),
+    (2,1),
+    (2,2),
+    (1,2),
+    (2,2),
+    (1,4),
+    (2,1)]
+
+S_nfdh,h_S_nfdh = nfdh(rectangles,stripwidth=4)
+S_ffdh,h_S_ffdh = ffdh(rectangles,stripwidth=4)
+
+rectangles_placed_nfdh = calc_coords_of_shelf_packing(S_nfdh,h_S_nfdh)
+rectangles_placed_ffdh = calc_coords_of_shelf_packing(S_nfdh,h_S_nfdh)
+
+plot_rectangles(rectangles_placed_nfdh, binsize=(4,h_S_nfdh))
+plot_rectangles(rectangles_placed_ffdh, binsize=(4,h_S_ffdh))
+#--------------
+# %%
+"""
+#move_by_lambda
+rectangles = [((0,0),6,4),((7,1),4,6),((5,7),6,4),((1,5),4,6),((5,5),2,2)]
+pointed_rect = [((1,1),6,4)]
+arrows = [(4,3,-1,-1)]
+
+plot_rectangles(rectangles,pointed_rect=pointed_rect,arrows=arrows,showticks=False,binsize=(11,11))
 """
 # %%
+"""
+#non-guillotinable
+rectangles = [((0,0),3/5,2/5),((3/5,0),2/5,3/5),((2/5,3/5),3/5,2/5),((0,2/5),2/5,3/5)]
+
+plot_rectangles(rectangles,showticks=False)
+"""
+# %%
+"""
+#example 2-stage packing
+
+rectangles = [((0,0),3/5,1/4),((3/5,0),1/3,1/4),((0,1/4),1,1/4),((0,1/2),1/3,1/2),((1/2,0.6),1/4,1/2),((3/4,1/2),1/4,1/2)]
+
+plot_rectangles(rectangles,showticks=False)
+"""
+# %%
+"""
+#blocked ring saw cuttable, lambda = 1/12
+rectangles = [((0,0),1/2+1/24,1/3+1/24),((1-1/3-1/24,0),1/3+1/24,1/2+1/24),((1-1/2-1/24,1-1/3-1/24),1/2+1/24,1/3+1/24),((0,1-1/2-1/24),1/3+1/24,1/2+1/24)]
+plot_rectangles(rectangles,showticks=False)
+"""
+# %%
+"""
+#example of "allowing corner cuts is more restrictive
+rectangles = [
+    ((0,0),1,2),
+    ((1,0),4,1),
+    ((0,2),2,1),
+    ((0,3),1,3),
+    ((0,6),3,1),
+    ((0,7),1,2),
+    ((0,9),3,1),
+    ((3,1),1,2),
+    ((1,3),3,1),
+    ((3,5),1,2),
+    ((2,7),2,1),
+    ((3,8),2,2),
+    ((4,3),1,2),
+    ((5,2),2,2),
+    ((6,4),1,4),
+    ((4,6),2,1)]
+cuts = [
+        ((0,3),5,0),
+        ((0,7),5,0),
+        ((4,2),0,6)
+        ]
+plot_rectangles(rectangles,showticks=False,binsize=(7,10),cuts=cuts)
+"""
+# %%
+"""
+#lambda-saw cutting is less restrictive than guillotine cutting
+rectangles=[
+    ((0,0),3,3),
+    ((3,0),10,2),
+    ((0,3),2,10),
+    ((3,3),8,8),
+    ((11,2),2,11),
+    ((2,11),9,2)]
+braces = [(0,3),8,"\delta"]
+plot_rectangles(rectangles,showticks=False,binsize=(13,13))
+"""
+# %%
+"""
+#alt_lambda-saw cutting is less restrictive than guillotine cutting
+rectangles=[
+    ((1,0),10,2),
+    ((0,2),2,11),
+    ((2,3),9,2),
+    ((2,5),8,8),
+    ((11,0),2,10),
+    ((10,10),3,3)]
+plot_rectangles(rectangles,showticks=False,binsize=(13,13))
+"""
+# %%
+"""
+#alt_lambda-saw cutting is less restrictive than guillotine cutting
+rectangles=[
+    ((0,0),10,2),
+    ((0,2),2,11),
+    ((2,3),9,2),
+    ((2,5),8,8),
+    ((11,3),2,10),
+    ((10,0),3,3)]
+plot_rectangles(rectangles,showticks=False,binsize=(13,13))
+"""
+# %%
+"""
+
+#example lower bound shelf packing for area min
+N=7
+
+rectangles = [((0,0),1+1/N,1/N), ((0,1/N),1/N,1)]
+               
+for i in range(N):
+    rectangles.append(((1/N,(1+i)/N),2/3,1/N))
+    for j in range(N):
+        rectangles.append(((1/N+2/3,(1+i)/N+j/N**2),1/3,1/N**2))
+
+plot_rectangles(rectangles,showticks=False,binsize=(1+1/N,1+1/N))
+
+"""
+# %%
+"""
+#example_polygons
+
+example_polygons = [
+    [(0, 0), (0, 1), (1, 1)],
+    [(2, 2), (2, 3), (3, 3), (3, 2)],
+]
+
+visualize_polygons(example_polygons,binsize = (3,3))
+"""
+# %%
+"""
+#problematic_polygon
+
+problematic_polygon = [[(0,2),(1,0),(10,12),(19,19),(17,18)]]
+
+visualize_polygons(problematic_polygon,binsize = (20,20))
+"""
+# %%
+"""
+#two polygons
+
+polygons = [[(1,1.5),(2,6.5),(1,4.5),(4,6),(3,5.5)],
+            [(2.75,0),(3.75,5),(2.75,3),(5,2)]]
+
+visualize_polygons(polygons,binsize = (7,7))
+"""
+# %%
+"""
+#three polygons
+
+polygons = [[(1,1.5),(2,6.5),(1,4.5),(4,6),(3,5.5)],
+            [(2.75,0),(3.75,5),(2.75,3),(5,2)],
+            [(5.25,0.5),(6.25,5.5),(5.25,1.5),(6.75,2.5)]]
+
+spines = [[(1,1.5),(2,6.5)], [(2.75,0),(3.75,5)], [(5.25,0.5),(6.25,5.5)]]
+
+spines2 = [[(0,2),(1,7)], [(6,0),(7,5)]]
+
+middle_line = [[(0,3.5),(7,3.5)]]
+
+visualize_polygons(polygons,binsize = (7,7), lines_black=spines, other_lines = middle_line+spines2)
+"""
+# %%
+"""
+#example right triangles
+
+def construct_right_triangles(width,height,N,w0=0,h0=0):
+    SN = []
+    for i in range (1,N+1):
+        SN += [[(w0+(N+1-i)/(N+1)*width,h0+i/(N+1)*height),
+               (w0+width,h0+i/(N+1)*height),
+               (w0+(N+1-i)/(N+1)*width,h0+(i+1)/(N+1)*height)]]
+    return SN
+"""
+# %%
+"""
+width=40
+height=20
+N=3
+
+example_right_triangles = [[(0,0),(width,0),(0,height)]]
+
+SN1 = construct_right_triangles(width,height,N)
+
+example_right_triangles += SN1
+
+for polygon in SN1:
+    SN2 = construct_right_triangles(polygon[1][0]-polygon[0][0],polygon[2][1]-polygon[0][1],N,w0=polygon[0][0],h0=polygon[0][1])
+    example_right_triangles += SN2
+    for poly2 in SN2:
+        SN3 = construct_right_triangles(poly2[1][0]-poly2[0][0],poly2[2][1]-poly2[0][1],N,w0=poly2[0][0],h0=poly2[0][1])
+        example_right_triangles += SN3
+
+visualize_polygons(example_right_triangles,binsize=(width,height))
+"""
+# %%
+"""
+#example
+intervals = [(1, 1), (2, 3), (6, 2), (8, 1)]  # Example intervals
+visualize_1d(intervals)
+"""
