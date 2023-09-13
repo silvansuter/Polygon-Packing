@@ -124,7 +124,7 @@ def polygon_packing(polygons,c=3,rectangle_strip_packing_algorithm="ffdh",return
 
     Args:
     - polygons (list of list): A list of left- and bottom-adjusted polygons. Left- and bottom-adjusted means that the lowest x-coordinate vertex of the polygon has x-coordinate 0 and similar for the lowest y-coordinate vertex.
-    - c (int, optional): A constant determining the strip width. Defaults to 3 (which gives the best approximation guarantee).
+    - c (int, optional): A constant determining the strip width. Defaults to 3 (which gives the best approximation guarantee for area minimization).
     - rectangle_strip_packing_algorithm (str, optional): The algorithm used for rectangle strip packing, either "ffdh" or "nfdh". Defaults to "ffdh".
     - return_shelf_lines (bool, optional): If set to True, the function also returns lines that separate the shelves. Defaults to False.
     - return_rectangles_packing (bool, optional): If set to True, the function returns data about how rectangles are packed. Defaults to False.
