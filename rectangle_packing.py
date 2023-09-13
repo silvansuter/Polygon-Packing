@@ -138,30 +138,3 @@ def calc_coords_of_shelf_packing(shelves,shelf_heights):
         H += shelf_heights[i]
         
     return rectangles_placed
-
-
-"""
-rectangles = [
-    (1,2),
-    (4,1),
-    (2,1),
-    (1,3),
-    (3,1),
-    (1,2),
-    (3,1),
-    (1,2),
-    (3,1),
-    (1,2),
-    (2,1),
-    (2,2),
-    (1,2),
-    (2,2),
-    (1,4),
-    (2,1)]
-
-S_nfdh,h_S_nfdh = nfdh(rectangles,stripwidth=4)
-S_ffdh,h_S2_ffdh = ffdh(rectangles,stripwidth=4)
-
-rectangles_placed_nfdh = calc_coords_of_shelf_packing(S_nfdh,h_S_nfdh)
-rectangles_placed_ffdh = calc_coords_of_shelf_packing(S_nfdh,h_S_nfdh)
-"""
