@@ -6,8 +6,8 @@ Created on Fri Mar 10 15:45:20 2023
 @author: sisuter
 """
 
-from rectangle_bin_plotter import *
-from algorithms_ffdh_nfdh import *
+from plotting import *
+from rectangle_packing import *
 from polygon_packing import *
 
 import matplotlib.pyplot as plt

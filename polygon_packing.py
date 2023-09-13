@@ -1,6 +1,6 @@
 import numpy as np
-from algorithms_ffdh_nfdh import *
-from rectangle_bin_plotter import *
+from rectangle_packing import *
+from plotting import *
 import random
 import numpy as np
 from fractions import Fraction

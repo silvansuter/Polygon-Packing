@@ -12,7 +12,7 @@ def order_by_height(rectangles):
 
 def nfdh(rectangles,stripwidth=1,return_map=False):
     """
-    Packs the rectangles using the Next Fit Decreasing Height (NFDH) algorithm.
+    Packs the rectangles using the Next Fit Decreasing Height (NFDH) algorithm, see https://en.wikipedia.org/wiki/Strip_packing_problem.
 
     Args:
     - rectangles (list of tuple): List of rectangles where each rectangle is a tuple (width, height).
@@ -54,7 +54,7 @@ def nfdh(rectangles,stripwidth=1,return_map=False):
 
 def ffdh(rectangles,stripwidth=1,return_map=False):
     """
-    Packs the rectangles using the First Fit Decreasing Height (FFDH) algorithm.
+    Packs the rectangles using the First Fit Decreasing Height (FFDH) algorithm, see https://en.wikipedia.org/wiki/Strip_packing_problem.
 
     Args:
     - rectangles (list of tuple): List of rectangles where each rectangle is a tuple (width, height).
@@ -134,7 +134,7 @@ def calc_coords_of_shelf_packing(shelves,shelf_heights):
             # Increment the width to fit the left side of the next rectangle in the same shelf
             W += shelves[i][j][0]
             
-        # Increment the height to fit the bottom of the next shelf
+        # Increment the height to be equal to the height of the bottom of the next shelf (= height at top of the current shelf)
         H += shelf_heights[i]
         
     return rectangles_placed
