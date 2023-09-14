@@ -194,8 +194,31 @@ def resize_rectangles(rectangles,factor):
     # Scale the x,y coordinates and the width,height of each rectangle by the given factor
     return [(tuple(factor*np.array(rectangle[0])),factor*rectangle[1],factor*rectangle[2]) for rectangle in rectangles]
 
+def dynamic_rounding(value):
+    """
+    Dynamically rounds the given value based on its magnitude.
+    
+    For values:
+    - Less than 10, it's rounded to 2 decimal places.
+    - Between 10 and 100, it's rounded to 1 decimal place.
+    - Greater than or equal to 100, it's rounded to the nearest integer.
 
-def visualize_polygons(polygons,figure_size = (5,5), binsize = (1,1),showticks=False,bounding_parallelograms = [],lines = [], other_lines = [], lines_black = []):
+    Args:
+    - value (float): The value to be rounded.
+
+    Returns:
+    - float/int: The dynamically rounded value.
+    """
+    
+    if value < 10:
+        return round(value, 2)  # Round to 2 decimal places
+    elif value < 100:
+        return round(value, 1)  # Round to 1 decimal place
+    else:
+        return int(value)  # Round to the nearest integer
+
+
+def visualize_polygons(polygons, binsize = (1,1),showticks=False,bounding_parallelograms = [],lines = [], other_lines = [], lines_black = [], file_name = ''):
     """
     Visualizes a list of polygons and additional geometries like (bounding) parallelograms within a specified bin size.
 
@@ -208,7 +231,11 @@ def visualize_polygons(polygons,figure_size = (5,5), binsize = (1,1),showticks=F
     - lines (list, optional): List of lines to plot in red.
     - other_lines (list, optional): List of lines to plot in blue.
     - lines_black (list, optional): List of lines to plot in black.
+    - file_name = (string, optional): Name of the saved figure (will be saved in Plots/file_name). If none is given, the figure will not be saved.
     """
+    # Make sure binsize is a tuple of floats
+    binsize = (float(binsize[0]), float(binsize[1]))
+        
     # Create a new figure and axis
     fig, ax = plt.subplots()
     
@@ -269,7 +296,7 @@ def visualize_polygons(polygons,figure_size = (5,5), binsize = (1,1),showticks=F
         x_values = [point[0] for point in hull_points]
         y_values = [point[1] for point in hull_points]
         ax.add_patch(Polygon(xy=list(zip(x_values, y_values)), closed=True, edgecolor='black', facecolor='lightgrey',linewidth=min(binsize[0], binsize[1]),zorder=2))
-    
+
     # Plot the polygons in orange
     for polygon in polygons:
         hull = ConvexHull(polygon)
@@ -277,6 +304,9 @@ def visualize_polygons(polygons,figure_size = (5,5), binsize = (1,1),showticks=F
         x_values = [point[0] for point in hull_points]
         y_values = [point[1] for point in hull_points]
         ax.add_patch(Polygon(xy=list(zip(x_values, y_values)), closed=True, edgecolor='black', facecolor='orange',linewidth=2*min(binsize[0], binsize[1]),joinstyle='bevel',zorder=2))
+    
+    if file_name != '':
+        plt.savefig('Plots/' + file_name)
     
     # Display the plot
     plt.show()

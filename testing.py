@@ -489,9 +489,6 @@ random_polygons = [left_bottom_adjust_polygon(polygon) for polygon in random_pol
 
 packed_random_polygons, packed_random_polygons_bounding_parallelograms, width, height, shelf_lines = polygon_packing(random_polygons,c=c,rectangle_strip_packing_algorithm="ffdh",return_shelf_lines=True)
 
-width = float(width)
-height = float(height)
-
 visualize_polygons(packed_random_polygons, bounding_parallelograms = packed_random_polygons_bounding_parallelograms, figure_size = (200,200), binsize = (width,height))
 #------------
 # %%
