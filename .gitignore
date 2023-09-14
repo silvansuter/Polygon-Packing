@@ -7,3 +7,4 @@ __pycache__/
 # Unfinished files
 main.ipynb
 testing.py
+.DS_Store
