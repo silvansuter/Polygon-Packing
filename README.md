@@ -26,7 +26,7 @@ A key thing is that we want to have an efficient algorithm (i.e. one with polyno
 
 ## Visual Demonstration
 
-![Example Packing of our Algorithm](Images/big_instance.png)
+![Example Packing of our Algorithm](readme_assets/big_instance.png)
 
 ## Installation and Usage
 
