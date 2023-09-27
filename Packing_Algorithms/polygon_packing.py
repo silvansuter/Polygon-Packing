@@ -1,6 +1,6 @@
 import numpy as np
-from rectangle_packing import *
-from plotting import *
+from Packing_Algorithms.rectangle_packing import *
+from Plotting.plotting import *
 import random
 import numpy as np
 from fractions import Fraction

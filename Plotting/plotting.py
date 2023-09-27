@@ -306,7 +306,7 @@ def visualize_polygons(polygons, binsize = (1,1),showticks=False,bounding_parall
         ax.add_patch(Polygon(xy=list(zip(x_values, y_values)), closed=True, edgecolor='black', facecolor='orange',linewidth=2*min(binsize[0], binsize[1]),joinstyle='bevel',zorder=2))
     
     if file_name != '':
-        plt.savefig('Plots/' + file_name)
+        plt.savefig('Plotting/Plots/' + file_name)
     
     # Display the plot
     plt.show()
