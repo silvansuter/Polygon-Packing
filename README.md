@@ -49,8 +49,8 @@ Follow the steps below to obtain the code and set it up:
 1. **Clone the Repository:**
    
 ```bash
-git clone https://github.com/your_username/your_project_name.git
-cd your_project_name
+git clone https://github.com/your_username/Polygon-Packing.git
+cd Polygon-Packing
 ```
 
 2. **Install Dependencies:**
