@@ -218,7 +218,7 @@ def dynamic_rounding(value):
         return int(value)  # Round to the nearest integer
 
 
-def visualize_polygons(polygons, binsize = (1,1),showticks=False,bounding_parallelograms = [],lines = [], other_lines = [], lines_black = [], file_name = ''):
+def visualize_polygons(polygons, binsize = (1,1),showticks=False,bounding_parallelograms = [],lines = [], other_lines = [], lines_black = [], file_name = '', normalize = 1):
     """
     Visualizes a list of polygons and additional geometries like (bounding) parallelograms within a specified bin size.
 
@@ -232,7 +232,9 @@ def visualize_polygons(polygons, binsize = (1,1),showticks=False,bounding_parall
     - other_lines (list, optional): List of lines to plot in blue.
     - lines_black (list, optional): List of lines to plot in black.
     - file_name = (string, optional): Name of the saved figure (will be saved in Plots/file_name). If none is given, the figure will not be saved.
+    - normalize (float, optional): A normaliaztion factor for the plotted image (they can be too big for matplotlib to show otherwise)
     """
+    
     # Make sure binsize is a tuple of floats
     binsize = (float(binsize[0]), float(binsize[1]))
         
@@ -240,11 +242,11 @@ def visualize_polygons(polygons, binsize = (1,1),showticks=False,bounding_parall
     fig, ax = plt.subplots()
     
     # Set the linewidth of the frame based on the minimum of binsize dimensions
-    [x.set_linewidth(2*min(binsize[0], binsize[1])) for x in ax.spines.values()]
+    [x.set_linewidth(2*min(binsize[0], binsize[1])/normalize) for x in ax.spines.values()]
     
     # Set axis limits
     ax.set(xlim=(0,binsize[0]),ylim=(0,binsize[1]))
-    fig.set_size_inches(5*binsize[0], 5*binsize[1])
+    fig.set_size_inches(5*binsize[0]/normalize, 5*binsize[1]/normalize)
     
     # If axis ticks shouldn't be shown
     if not showticks:
@@ -307,6 +309,10 @@ def visualize_polygons(polygons, binsize = (1,1),showticks=False,bounding_parall
     
     if file_name != '':
         plt.savefig('plotting/plots/' + file_name)
+        print("Saved plot under '" 'plotting/plots/' + file_name + "'")
+    
     
     # Display the plot
     plt.show()
+    
+    return None
