@@ -81,6 +81,8 @@ The algorithm runs in $\mathcal{O}(f(n) + N)$ time, where $N$ is the total numbe
 
 It is planned to add a python notebook file to take the reader through the problem and the algorithm in an easy to understand manner. Until then, the reader is referred to the [paper](https://drops-beta.dagstuhl.de/entities/document/10.4230/LIPIcs.ESA.2023.76).
 
+Currently, I am working on implementations in C++. These should incorporate the features from the section below.
+
 ## Possible Improvements
 
 The algorithm is optimized for a best possible approximation guarantee, thus guaranteeing that the algorithm will not perform too badly for any instance. It is not optimized for practical use, as one can see the shelves often have empty space on the left and the right. By possibly worsening the approximation guarantee or the running-time it is very well possible to obtain better performance on practical instances using one of the following methods.
