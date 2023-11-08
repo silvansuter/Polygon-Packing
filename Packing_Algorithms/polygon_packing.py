@@ -2,7 +2,6 @@ import numpy as np
 from packing_algorithms.rectangle_packing import *
 from plotting.plotting import *
 import random
-import numpy as np
 from fractions import Fraction
 
 def compute_polygon_width(polygon, return_vertices=False):
